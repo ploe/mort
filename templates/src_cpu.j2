@@ -1,0 +1,29 @@
+#include <stdbool.h>
+
+{% for op in opcodes -%}
+{% if op.jump -%}
+bool cpu_{{ op.tag }}(GameBoy *gb, uint8_t *bytes) {
+  /* todo {{ key }} */
+  fputs("'{{ op.tag }}' in '{{ filename }}' not implemented", stderr);
+  exit(-1);
+
+  /*
+  if (gb->registers.f & FLAG_{{ op.operand }}) {
+      return true;
+  }
+
+  return false;
+  */
+}
+
+{% else -%}
+bool cpu_{{ op.tag }}(GameBoy *gb, uint8_t *bytes) {
+  /* todo {{ op.key }} */
+  fputs("'{{ op.tag }}' in '{{ filename }}' not implemented", stderr);
+  exit(-1);
+
+  return false;
+}
+
+{% endif -%}
+{% endfor -%}
