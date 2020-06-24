@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct GameBoy {
+typedef struct LR35902_t {
   struct registers {
     union {
       struct {
@@ -17,9 +17,9 @@ typedef struct GameBoy {
     uint16_t pc, sp;
   } registers;
 
-} GameBoy;
+} LR35902_t;
 
-typedef bool (*Opcode_Callback)(GameBoy *, uint8_t []);
+typedef bool (*Opcode_Callback)(LR35902_t *, uint8_t []);
 
 typedef struct {
     char *mnemonic;
@@ -31,7 +31,7 @@ typedef struct {
 } Opcode;
 
 
-bool cpu_nop(GameBoy *gb, uint8_t *bytes) {
+bool cpu_nop(LR35902_t *cpu, uint8_t *bytes) {
     /* todo 0x00 */
     abort();
 
@@ -43,7 +43,7 @@ Opcode opcodes[] = {
       .bytes = 1,
       .callback = cpu_nop,
       .cycles = {
-        .update = 0,
+        .jumped = 0,
         .ignore = 4
       },
       .mnemonic = "NOP",
@@ -51,32 +51,32 @@ Opcode opcodes[] = {
 };
 
 int main(int argc, char *argv[]) {
-    GameBoy gb;
+    LR35902_t cpu;
 
-    gb.registers.af = 0x3604;
+    cpu.registers.af = 0x3604;
 
-    printf("af: 0x%04X\n", gb.registers.af);
-    printf("a: 0x%02X\n", gb.registers.a);
-    printf("f: 0x%02X\n", gb.registers.f);
+    printf("af: 0x%04X\n", cpu.registers.af);
+    printf("a: 0x%02X\n", cpu.registers.a);
+    printf("f: 0x%02X\n", cpu.registers.f);
 
-    gb.registers.bc = 0x4477;
+    cpu.registers.bc = 0x4477;
 
-    printf("af: 0x%04X\n", gb.registers.bc);
-    printf("a: 0x%02X\n", gb.registers.b);
-    printf("f: 0x%02X\n", gb.registers.c);
+    printf("af: 0x%04X\n", cpu.registers.bc);
+    printf("a: 0x%02X\n", cpu.registers.b);
+    printf("f: 0x%02X\n", cpu.registers.c);
 
-    // for op at gb.pc
+    // for op at cpu.pc
     Opcode *op = &(opcodes[0]);
     int cycles;
-    bool jumped = op->callback(&gb, NULL);
+    bool jumped = op->callback(&cpu, NULL);
 
     if (jumped) {
         cycles += op->cycles.jumped;
         // continue;
     }
 
-    gb.pc += op->bytes;
-    cycles += op.cycles.ignore;
+    cpu.registers.pc += op->bytes;
+    cycles += op->cycles.ignore;
 
     return 0;
 }
