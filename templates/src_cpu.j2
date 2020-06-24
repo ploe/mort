@@ -8,12 +8,12 @@ bool cpu_{{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
   exit(-1);
 
   /*
-  if (cpu->registers.f & FLAG_{{ op.operand }}) {
+  if (cpu->registers.f & FLAG_{{ op.operands[0].name }}) {
       return true;
   }
-
-  return false;
   */
+  
+  return false;
 }
 
 {% else -%}
