@@ -1,8 +1,11 @@
 #include <stdbool.h>
+#include <stdlib.h>
+
+#include "mort/cpu.h"
 
 {% for op in opcodes -%}
 {% if op.jump -%}
-bool cpu_{{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
+bool {{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
   /* todo {{ key }} */
   fputs("'{{ op.tag }}' in '{{ filename }}' not implemented", stderr);
   exit(-1);
@@ -12,12 +15,12 @@ bool cpu_{{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
       return true;
   }
   */
-  
+
   return false;
 }
 
 {% else -%}
-bool cpu_{{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
+bool {{ op.tag }}(LR35902_t *cpu, uint8_t *bytes) {
   /* todo {{ op.key }} */
   fputs("'{{ op.tag }}' in '{{ filename }}' not implemented", stderr);
   exit(-1);

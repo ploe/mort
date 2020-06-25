@@ -1,6 +1,8 @@
 #ifndef _MORT_OPCODES_H
 #define _MORT_OPCODES_H
 
+#include <stdbool.h>
+
 typedef struct LR35902_t {
   struct registers {
     union {
@@ -22,7 +24,7 @@ typedef bool (*Instruction)(LR35902_t *, uint8_t []);
 
 typedef struct {
     char *mnemonic;
-    Opcode_Callback instruction;
+    Instruction instruction;
     uint8_t bytes;
     struct {
       int jumped, ignore;

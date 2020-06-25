@@ -1,4 +1,4 @@
-"""Module that generates 'src/cpu/{mnemonic}.c' files"""
+"""Module that generates 'build/src/cpu/instructions/{mnemonic}.c' files"""
 
 
 import json
@@ -8,7 +8,7 @@ import jinja2
 
 
 class Maker:
-    """Opens 'opcodes.json' and generates 'src/cpu/{mnemonic}.c' files"""
+    """Opens 'opcodes.json' and generates 'build/src/cpu/instructions/{mnemonic}.c' files"""
 
     @staticmethod
     def extract():
@@ -24,7 +24,8 @@ class Maker:
             if 'ILLEGAL' in opcode['mnemonic']:
                 continue
 
-            filename = "build/src/instructions/{mnemonic}.c".format(**opcode).lower()
+            filename = "build/src/cpu/instructions/{mnemonic}.c".format(
+                **opcode).lower()
 
             opcode['index'] = int(key, 0)
             opcode['key'] = key
@@ -58,8 +59,9 @@ class Maker:
 
     @staticmethod
     def load(transformed):
-        """Loaded transformed dicts in to 'src/cpu/{mnemonic}.c'"""
-        os.makedirs('build/src/cpu', exist_ok=True)
+        """Loaded transformed dicts in to 'build/src/cpu/instructions/{mnemonic}.c'"""
+
+        os.makedirs('build/src/cpu/instructions', exist_ok=True)
 
         for filename, code in transformed.items():
             with open(filename, 'w') as filehandle:

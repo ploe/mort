@@ -1,6 +1,8 @@
-.PHONY: all clean lint venv src cpu
+.PHONY: all clean src cpu
 
-all: src
+all: cpu
+	cp -rv include/* build/include
+	cc -o mort main.c build/src/**/*.c -Iinclude
 
 build/src/cpu/%.c: jinja2/%.py
 		. ./venv/bin/activate; python $^
@@ -8,6 +10,7 @@ build/src/cpu/%.c: jinja2/%.py
 build/src/cpu/%: jinja2/%.py
 	. ./venv/bin/activate; python $^
 
+cpu: venv
 cpu: build/src/cpu/opcodes.c
 cpu: build/src/cpu/instructions
 

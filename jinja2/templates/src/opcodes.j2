@@ -1,21 +1,23 @@
+#include <stdlib.h>
+
 #include "mort/cpu.h"
 
 const Opcode opcodes[];
 
 inline Opcode Opcode_Get(uint8_t opcode) {
-  return *opcodes[opcode];
+  return opcodes[opcode];
 }
 
 const Opcode opcodes[] = {
 {%- for op in opcodes %}
     {
       .bytes = {{ op.bytes }},
-      .instruction = cpu_{{ op.tag }},
-
+      .instruction = {{ op.tag }},
+      .cycles = {
         .jumped = {{ op.jumped }},
         .ignore = {{ op.ignore }},
       },
-      .mnemonic = "{{ op.mnemonic }}"",
+      .mnemonic = "{{ op.mnemonic }}",
     },
 {%- endfor %}
 };

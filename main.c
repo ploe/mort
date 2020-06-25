@@ -4,13 +4,6 @@
 
 #include "mort/cpu.h"
 
-bool cpu_nop(LR35902_t *cpu, uint8_t *bytes) {
-    /* todo 0x00 */
-    abort();
-
-    return true;
-}
-
 typedef struct {
   uint16_t address;
   uint8_t bank;
