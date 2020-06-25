@@ -1,0 +1,8 @@
+#ifndef _MORT_INSTRUCTIONS_H
+#define _MORT_INSTRUCTIONS_H
+
+{% for op in opcodes -%}
+bool {{ op.tag }}(LR35902_t *cpu, uint8_t *bytes);
+{% endfor %}
+
+#endif

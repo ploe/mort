@@ -31,6 +31,6 @@ typedef struct {
     } cycles;
 } Opcode;
 
-inline Opcode Opcode_Get(uint8_t opcode);
+Opcode GetOpcode(uint8_t opcode);
 
 #endif

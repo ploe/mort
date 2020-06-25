@@ -2,7 +2,7 @@
 
 all: cpu
 	cp -rv include/* build/include
-	cc -o mort main.c build/src/**/*.c -Iinclude
+	cc -o mort main.c build/src/cpu/opcodes.c build/src/cpu/instructions/*.c -Ibuild/include
 
 build/src/cpu/%.c: jinja2/%.py
 		. ./venv/bin/activate; python $^

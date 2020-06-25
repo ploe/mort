@@ -1,14 +1,16 @@
 #include <stdlib.h>
 
 #include "mort/cpu.h"
+#include "mort/instructions.h"
 
-const Opcode opcodes[];
 
-inline Opcode Opcode_Get(uint8_t opcode) {
+static const Opcode opcodes[];
+
+Opcode GetOpcode(uint8_t opcode) {
   return opcodes[opcode];
 }
 
-const Opcode opcodes[] = {
+static const Opcode opcodes[] = {
 {%- for op in opcodes %}
     {
       .bytes = {{ op.bytes }},

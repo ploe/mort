@@ -46,19 +46,21 @@ int main(int argc, char *argv[]) {
     printf("f: 0x%02X\n", cpu.registers.c);
 
     // for op at cpu.pc
-    Opcode *op = Opcode_Get(0);
+    Opcode op = GetOpcode(0x33);
     int cycles;
-    bool jumped; // = op->callback(&cpu, NULL);
+    bool jumped; // =
 
     if (jumped) {
-        cycles += op->cycles.jumped;
+        cycles += op.cycles.jumped;
         // continue;
     }
 
-    cpu.registers.pc += op->bytes;
-    cycles += op->cycles.ignore;
+    cpu.registers.pc += op.bytes;
+    cycles += op.cycles.ignore;
 
     Symbols_ParseFile("../pulp/pulp.sym");
+
+    op.instruction(&cpu, NULL);
 
     return 0;
 }

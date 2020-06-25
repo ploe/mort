@@ -40,8 +40,18 @@ class Maker:
 
             tag = opcode['mnemonic'].lower()
             for operand in opcode['operands']:
-                tag = "{tag}_{operand}".format(
-                    tag=tag, operand=operand['name'])
+                keys = {'increment': 'inc', 'decrement': 'dec'}
+                for key, value in keys.items():
+                    if operand.get(key, False):
+                        tag = "{tag}_{value}".format(tag=tag, value=value)
+
+
+                prefix = "a"
+                if operand['immediate']:
+                    prefix = "r"
+
+                tag = "{tag}_{prefix}{operand}".format(
+                    tag=tag, prefix=prefix, operand=operand['name'])
 
             opcode['tag'] = tag
             opcode['jumped'], opcode['ignore'] = Maker.get_jumped_ignore(
