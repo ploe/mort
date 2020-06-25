@@ -49,16 +49,17 @@ class Maker:
 
             transformed.append(opcode)
 
-        with open('templates/src/opcodes.j2') as filehandle:
+        with open('jinja2/templates/src/opcodes.j2') as filehandle:
             template = jinja2.Template(filehandle.read())
             return template.render(opcodes=transformed)
 
     @staticmethod
     def load(transformed):
         """Loaded transformed dicts in to 'src/cpu/opcodes.c'"""
-        os.makedirs('src/cpu', exist_ok=True)
 
-        with open('src/cpu/opcodes.c', 'w') as filehandle:
+        os.makedirs('build/src/cpu', exist_ok=True)
+
+        with open('build/src/cpu/opcodes.c', 'w') as filehandle:
             filehandle.write(transformed)
 
     def make(self):

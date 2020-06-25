@@ -24,7 +24,7 @@ class Maker:
             if 'ILLEGAL' in opcode['mnemonic']:
                 continue
 
-            filename = "src/cpu/{mnemonic}.c".format(**opcode).lower()
+            filename = "build/src/instructions/{mnemonic}.c".format(**opcode).lower()
 
             opcode['index'] = int(key, 0)
             opcode['key'] = key
@@ -47,7 +47,7 @@ class Maker:
             opcodes = sorted(
                 transformed[filename], key=lambda k: k['tag'])
 
-            with open('templates/src_cpu.j2') as filehandle:
+            with open('jinja2/templates/src/instructions.j2') as filehandle:
                 template = jinja2.Template(filehandle.read())
 
             code = template.render(filename=filename, opcodes=opcodes)
@@ -59,7 +59,7 @@ class Maker:
     @staticmethod
     def load(transformed):
         """Loaded transformed dicts in to 'src/cpu/{mnemonic}.c'"""
-        os.makedirs('src/cpu', exist_ok=True)
+        os.makedirs('build/src/cpu', exist_ok=True)
 
         for filename, code in transformed.items():
             with open(filename, 'w') as filehandle:
