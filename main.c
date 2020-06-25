@@ -50,6 +50,24 @@ Opcode opcodes[] = {
     }
 };
 
+void Symfile_Parse(char *path) {
+  uint8_t bank;
+  uint16_t address;
+  char buffer[128], label[128];
+
+  FILE *filehandle;
+  filehandle = fopen(path, "r");
+
+  while(fgets(buffer, sizeof(buffer), filehandle)) {
+    int count = sscanf(buffer, "%02hhu:%04hX %128s\n", &bank, &address, label);
+
+    if (count != 3) continue;
+    printf("bank: %02hhu, address: 0x%04hX, label: %s\n", bank, address, label);
+  }
+
+  fclose(filehandle);
+}
+
 int main(int argc, char *argv[]) {
     LR35902_t cpu;
 
@@ -68,7 +86,7 @@ int main(int argc, char *argv[]) {
     // for op at cpu.pc
     Opcode *op = &(opcodes[0]);
     int cycles;
-    bool jumped = op->callback(&cpu, NULL);
+    bool jumped; // = op->callback(&cpu, NULL);
 
     if (jumped) {
         cycles += op->cycles.jumped;
