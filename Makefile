@@ -1,14 +1,14 @@
-.PHONY: all clean lint
+.PHONY: all clean lint venv src
 
 all: src
 
-src: lint
-	. ./venv/bin/activate; python src_cpu.py
+src/cpu/%.c: src_%.py
+		. ./venv/bin/activate; python $^
 
-lint: src_cpu.py venv
-	. ./venv/bin/activate; \
-	autopep8 --in-place --aggressive --aggressive $<; \
-	pylint $<;
+cpu: src/cpu/opcodes.c
+
+src:
+	. ./venv/bin/activate; python $^
 
 venv: requirements.txt
 	virtualenv -p python3 venv

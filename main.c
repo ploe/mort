@@ -2,34 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct LR35902_t {
-  struct registers {
-    union {
-      struct {
-        uint16_t af, bc, de, hl;
-      };
-
-      struct {
-        uint8_t f, a, c, b, e, d, l, h;
-      };
-    };
-
-    uint16_t pc, sp;
-  } registers;
-
-} LR35902_t;
-
-typedef bool (*Opcode_Callback)(LR35902_t *, uint8_t []);
-
-typedef struct {
-    char *mnemonic;
-    Opcode_Callback callback;
-    uint8_t bytes;
-    struct {
-      int jumped, ignore;
-    } cycles;
-} Opcode;
-
+#include "mort/cpu.h"
 
 bool cpu_nop(LR35902_t *cpu, uint8_t *bytes) {
     /* todo 0x00 */
@@ -38,34 +11,30 @@ bool cpu_nop(LR35902_t *cpu, uint8_t *bytes) {
     return true;
 }
 
-Opcode opcodes[] = {
-    {
-      .bytes = 1,
-      .callback = cpu_nop,
-      .cycles = {
-        .jumped = 0,
-        .ignore = 4
-      },
-      .mnemonic = "NOP",
-    }
-};
-
-void Symfile_Parse(char *path) {
-  uint8_t bank;
+typedef struct {
   uint16_t address;
-  char buffer[128], label[128];
+  uint8_t bank;
+} Label;
 
-  FILE *filehandle;
-  filehandle = fopen(path, "r");
+/* LINE_LENGTH: Max symbol length in rgbasm is set to 256, so this is
+overshooting it a tad. */
+#define LINE_LENGTH 512
 
-  while(fgets(buffer, sizeof(buffer), filehandle)) {
-    int count = sscanf(buffer, "%02hhu:%04hX %128s\n", &bank, &address, label);
+void Symbols_ParseFile(char *path) {
+  char buffer[LINE_LENGTH];
+
+  FILE *stream = fopen(path, "r");
+
+  while(fgets(buffer, sizeof(buffer), stream)) {
+    char key[LINE_LENGTH];
+    Label tmp;
+    int count = sscanf(buffer, "%02hhu:%04hX %512s\n", &tmp.bank, &(tmp.address), key);
 
     if (count != 3) continue;
-    printf("bank: %02hhu, address: 0x%04hX, label: %s\n", bank, address, label);
+    printf("bank: %02hhu, address: 0x%04hX, label: %s\n", tmp.bank, tmp.address, key);
   }
 
-  fclose(filehandle);
+  fclose(stream);
 }
 
 int main(int argc, char *argv[]) {
@@ -84,7 +53,7 @@ int main(int argc, char *argv[]) {
     printf("f: 0x%02X\n", cpu.registers.c);
 
     // for op at cpu.pc
-    Opcode *op = &(opcodes[0]);
+    Opcode *op = Opcode_Get(0);
     int cycles;
     bool jumped; // = op->callback(&cpu, NULL);
 
@@ -95,6 +64,8 @@ int main(int argc, char *argv[]) {
 
     cpu.registers.pc += op->bytes;
     cycles += op->cycles.ignore;
+
+    Symbols_ParseFile("../pulp/pulp.sym");
 
     return 0;
 }
