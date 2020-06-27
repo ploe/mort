@@ -23,12 +23,15 @@ typedef struct LR35902_t {
 typedef bool (*Instruction)(LR35902_t *, uint8_t []);
 
 typedef struct {
-    char *mnemonic;
-    Instruction instruction;
     uint8_t bytes;
     struct {
       int jumped, ignore;
     } cycles;
+    struct {
+      char z, n, h, c;
+    } flags;
+    Instruction instruction;
+    const char *mnemonic;
 } Opcode;
 
 Opcode GetOpcode(uint8_t opcode);

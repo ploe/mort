@@ -11,15 +11,23 @@ Opcode GetOpcode(uint8_t opcode) {
 }
 
 static const Opcode opcodes[] = {
-{%- for op in opcodes %}
+{%- for opcode in extracted %}
+{%- if not opcode['0xCB'] %}
     {
-      .bytes = {{ op.bytes }},
-      .instruction = {{ op.tag }},
+      .bytes = {{ opcode.bytes }},
       .cycles = {
-        .jumped = {{ op.jumped }},
-        .ignore = {{ op.ignore }},
+        .jumped = {{ opcode.cycles.jumped }},
+        .ignore = {{ opcode.cycles.ignore }},
       },
-      .mnemonic = "{{ op.mnemonic }}",
+      .flags = {
+        .z = '{{ opcode.flags.Z }}',
+        .n = '{{ opcode.flags.N }}',
+        .h = '{{ opcode.flags.H }}',
+        .c = '{{ opcode.flags.C }}',
+      },
+      .instruction = {{ opcode.slug }},
+      .mnemonic = "{{ opcode.mnemonic }}",
     },
+{%- endif %}
 {%- endfor %}
 };
