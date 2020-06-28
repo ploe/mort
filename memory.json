@@ -1,0 +1,56 @@
+[{
+    "slug": "rom0",
+		"start": "0x0000",
+		"stop": "0x3FFF"
+	},
+	{
+    "slug": "romX",
+		"start": "0x4000",
+		"stop": "0x7FFF"
+	},
+	{
+    "slug": "sram",
+		"start": "0xA000",
+		"stop": "0xBFFF"
+	},
+	{
+    "slug": "wram0",
+		"start": "0xC000",
+		"stop": "0xCFFF"
+	},
+	{
+    "slug": "wramX",
+		"start": "0xD000",
+		"stop": "0xDFFF"
+	},
+	{
+    "slug": "echo",
+		"start": "0xE000",
+		"stop": "0xFDFF"
+	},
+	{
+    "slug": "oam",
+		"start": "0xFE00",
+		"stop": "0xFE9F"
+	},
+	{
+    "slug": "unused",
+		"start": "0xFEA0",
+		"stop": "0xFEFF"
+	},
+	{
+    "slug": "io",
+		"start": "0xFF00",
+		"stop": "0xFF7F"
+	},
+	{
+    "slug": "hram",
+		"start": "0xFF80",
+		"stop": "0xFFFE"
+	},
+	{
+    "slug": "ie",
+		"start": "0xFFFF",
+		"stop": "0xFFFF"
+	}
+]

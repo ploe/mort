@@ -2,17 +2,16 @@
 
 all: build cpu
 	cp -rv include/* build/include
-	cc -o mort main.c build/src/cpu/opcodes.c build/src/cpu/instructions/*.c -Ibuild/include
+	cc -o mort main.c build/src/*.c -Ibuild/include
 
 build:
-	mkdir -p build/src/cpu build/include
+	mkdir -p build/src build/include
 
-build/src/cpu/%.c: jinja2/templates/src/%.j2
+build/src/%.c: jinja2/templates/src/%.j2
 		. ./venv/bin/activate; python jinja2/jinjify.py jinja2/opcodes.json $< > $@
 
-#cpu: venv
-cpu: build/src/cpu/opcodes.c
-#cpu: build/src/cpu/instructions
+cpu: venv
+cpu: build/src/opcodes.c
 
 venv: requirements.txt
 	virtualenv -p python3 venv
