@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#include "mort/cpu.h"
+//#include "mort/cpu.h"
 
 typedef struct {
   uint16_t address;
@@ -122,6 +122,34 @@ void Symbols_ParseFile(char *path) {
   fclose(stream);
 }
 
+typedef struct Rom_t {
+  char *data;
+  long count;
+} Rom_t;
+
+typedef struct Mmu_t {
+  Rom_t rom;
+} Mmu_t;
+
+Rom_t OpenRom(const char *path) {
+  /* Opens a ROM file and puts it in the struct */
+  FILE *stream = fopen(path, "rb");
+
+  fseek(stream, 0, SEEK_END);
+  long count = ftell(stream);
+
+  fseek(stream, 0, SEEK_SET);
+
+  char *data = calloc(count + 1, sizeof(char));
+  fread(data, sizeof(char), count, stream);
+
+  fclose(stream);
+  return (Rom_t) {
+    .count = count,
+    .data = data
+  };
+}
+
 int main(int argc, char *argv[]) {
 //    LR35902_t cpu;
 
@@ -151,6 +179,13 @@ int main(int argc, char *argv[]) {
 //    cycles += op.cycles.ignore;
 
     Symbols_ParseFile("../pulp/pulp.sym");
+    Rom_t rom = OpenRom("../pulp/pulp.gb");
+
+    putchar(rom.data[0x113A]);
+    putchar(rom.data[0x113B]);
+    putchar(rom.data[0x113C]);
+    putchar(rom.data[0x113D]);
+
     find(0x4001);
 
 //    op.instruction(&cpu, NULL);
