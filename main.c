@@ -157,6 +157,9 @@ Symfile_t *NewSymfile() {
 
 typedef unsigned long Hash_t;
 
+
+#define DJB2_MAGIC_NUMBER 5381
+
 static Hash_t djb2Hash(Hash_t hash, const char *key) {
   /* Generate a hash using the djb2 hashing algorithm */
   int c;
@@ -167,15 +170,21 @@ static Hash_t djb2Hash(Hash_t hash, const char *key) {
   return hash;
 }
 
-/* djb2: Generate a hash using the djb2 hashing algorithm, using the default
-5381 */
-#define djb2(key) djb2Hash(5381, key)
+/* djb2: Generate a hash using the djb2 hashing algorithm, using the
+DJB2_MAGIC_NUMBER */
+#define djb2(key) djb2Hash(DJB2_MAGIC_NUMBER, key)
+
+#define SYMBOL_COLLISION_LIMIT 3
 
 Symbol_t *SymfileSet(Symfile_t *symfile, Symbol_t symbol) {
-  Hash_t index = (djb2(symbol.key) & symfile->mask);
+  /* Set symbol at the correct index in symfile->symbols. Returns NULL on
+  failure i.e. 3 collisions - if this happens we should rehash the symbols. */
+  Hash_t index = DJB2_MAGIC_NUMBER;
 
   int collisions;
-  for (collisions = 3; collisions; collisions -= 1) {
+  for (collisions = SYMBOL_COLLISION_LIMIT; collisions; collisions -= 1) {
+    puts(".");
+    index = (djb2Hash(index, symbol.key) & symfile->mask);
 
     Symbol_t *target = &(symfile->symbols[index]);
     if (!target->address) {
@@ -184,7 +193,8 @@ Symbol_t *SymfileSet(Symfile_t *symfile, Symbol_t symbol) {
     }
   }
 
-  return target;
+  puts("3 collisions - not set");
+  return NULL;
 }
 
 Symfile_t *OpenSymfile(char *path) {
