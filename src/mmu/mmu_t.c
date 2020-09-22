@@ -17,3 +17,15 @@ Mmu_t *NewMmu(const char *path) {
 
   return mmu;
 }
+
+Mmu_t *DestroyMmu(Mmu_t *mmu) {
+  /* Deallocate the Mmu_t */
+  if (mmu) {
+    mmu->rom = CloseRom(mmu->rom);
+    mmu->symfile = CloseSymfile(mmu->symfile);
+
+    free(mmu);
+  }
+
+  return NULL;
+}

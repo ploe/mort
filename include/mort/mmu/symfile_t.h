@@ -35,5 +35,6 @@ typedef struct Symfile_t {
 /* methods */
 
 Symfile_t *OpenSymfile(char *);
+Symfile_t *CloseSymfile(Symfile_t *);
 
 #endif

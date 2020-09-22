@@ -137,6 +137,8 @@ int main(int argc, char *argv[]) {
     putchar(mmu->rom->data[0x113C]);
     putchar(mmu->rom->data[0x113D]);
 
+    mmu = DestroyMmu(mmu);
+    
     find(0x4001);
 
 //    op.instruction(&cpu, NULL);
