@@ -40,3 +40,23 @@ typedef struct Symfile_t {
   Symbol_t *symbols;
 } Symfile_t;
 ```
+
+# Methods
+
+## Symfile_t \*CloseSymfile(Symfile_t \*symfile)
+
+`CloseSymfile` frees `symfile` and all of its associated resources.
+
+Always returns `NULL`
+
+## Symbol_t \*GetSymbol(Symfile_t \*symfile, char \*label)
+
+`GetSymbol` returns the address of the `Symbol_t` at `label`
+
+Returns `NULL` if `label` is not found.
+
+## Symfile_t \*OpenSymfile(char \*path)
+
+`OpenSymfile` opens and parses the symfile found at `path`
+
+If this fails it returns `NULL`
