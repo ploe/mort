@@ -4,12 +4,12 @@ The Memory Management Unit (MMU) is the module that handles reading and writing 
 
 It is composed of smaller modules that handle the behaviour for the different memory ranges.
 
-It also keeps a local dictionary of labels/symbols parsed from Symfile output by RGBDS.
+It also keeps a local dictionary of labels/symbols parsed from `symfile` output by [rgbfix](https://github.com/gbdev/rgbds)
 
 The smaller units that represent the memory ranges are:
 
 * [rom_t](rom_t.md)
-* wram\_t
+* [wram_t](wram_t.md)
 
 The Symfile dictionary is implemented in:
 * symfile\_t
@@ -31,6 +31,6 @@ typedef struct Mmu_t {
 
 ## Mmu\_t *NewMmu(const char *path)
 
-Creates a new `Mmu_t` object. `path` is the path to a rom file to create a new `Rom_t` object from.
+Creates a new `Mmu_t` object using the rom at `path`
 
 Returns `NULL` if allocation fails.
