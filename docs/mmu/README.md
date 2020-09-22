@@ -12,7 +12,7 @@ The smaller units that represent the memory ranges are:
 * [wram_t](wram_t.md)
 
 The Symfile dictionary is implemented in:
-* symfile\_t
+* [symfile_t](symfile_t.md)
 
 # Interface
 
