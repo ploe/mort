@@ -10,5 +10,4 @@ typedef struct Wram_t {
 
 /* methods */
 
-
 #endif
