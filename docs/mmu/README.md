@@ -29,8 +29,12 @@ typedef struct Mmu_t {
 
 # Methods
 
-## Mmu\_t *NewMmu(const char *path)
+## Mmu_t \*DestroyMmu(Mmu_t \*mmu)
 
-Creates a new `Mmu_t` object using the rom at `path`
+Deallocate `mmu` and its submodules. Always returns `NULL`
+
+## Mmu\_t \*NewMmu(const char \*romfile, const char \*symfile)
+
+Creates a new `Mmu_t` object using the rom at `romfile` and the `symfile` at symfile.
 
 Returns `NULL` if allocation fails.
