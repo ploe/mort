@@ -3,15 +3,14 @@
 #include "mort/mmu/mmu_t.h"
 
 int main(int argc, char *argv[]) {
-    Mmu_t *mmu = NewMmu("../pulp/pulp.gb");
+    Mmu_t *mmu = NewMmu("../pulp/pulp.gb", "../pulp/pulp.sym");
 
-    GetSymbol(mmu->symfile, "Sprite_Bank_1");
-    GetSymbol(mmu->symfile, "Sprite_Bank_0");
+    Symbol_t *symbol = GetSymbol(mmu->symfile, "Kernel_Version");
 
-    putchar(mmu->rom->data[0x113A]);
-    putchar(mmu->rom->data[0x113B]);
-    putchar(mmu->rom->data[0x113C]);
-    putchar(mmu->rom->data[0x113D]);
+    if (symbol)
+      printf("%.4s\n", &mmu->rom->data[symbol->address]);
+
+    symbol = GetSymbol(mmu->symfile, "Find this!");
 
     mmu = DestroyMmu(mmu);
 

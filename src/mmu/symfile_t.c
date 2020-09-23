@@ -182,8 +182,6 @@ Symfile_t *OpenSymfile(char *path) {
       if (count != 3) continue;
       printf("bank: %02hhu, address: 0x%04hX, label: %s\n", symbol.bank, symbol.address, symbol.label);
 
-      int rehashes = SYMFILE_REHASH_LIMIT;
-
       while (!setSymbol(symfile, symbol)) {
         /* Symfile_t requires rehashing if we get too many collisions. */
         Symfile_t *new = growSymfile(symfile);

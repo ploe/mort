@@ -16,7 +16,7 @@ typedef struct Mmu_t {
 
 /* methods */
 
-Mmu_t *NewMmu(const char *);
+Mmu_t *NewMmu(char *, char *);
 Mmu_t *DestroyMmu(Mmu_t *);
 
 #endif
