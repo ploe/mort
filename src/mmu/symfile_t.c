@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -9,45 +10,72 @@
 
 #define SYMBOL_COLLISION_LIMIT 3
 
-/* static methods */
+/* types */
 
-static Symfile_t *new_symfile() {
-  /* Allocate and set the defaults for a new Symfile_t */
-  Symfile_t *symfile = calloc(1, sizeof(symfile));
+/* symbolCallback_t is the signature for callbacks passed to findSymbol,
+tryEachSymbol and forEachSymbol */
 
-  if (symfile) {
-    symfile->symbols = calloc(DEFAULT_SYMFILE_MASK, sizeof(Symbol_t));
+typedef Symbol_t *(*symbolCallback_t)(Symfile_t *, Symbol_t *, void *);
 
-    if (!symfile->symbols) {
-      free(symfile);
-      return NULL;
-    }
+/* static methods - forward declarations */
 
-    symfile->mask = DEFAULT_SYMFILE_MASK;
+static bool tryEachSymbol(Symfile_t *, symbolCallback_t, void *);
+static Symbol_t *copySymbol(Symfile_t *, Symbol_t *, void *);
+static Symbol_t *findSymbol(Symfile_t *, symbolCallback_t, void *);
+static Symbol_t *setSymbol(Symfile_t *, Symbol_t);
+static Symfile_t *growSymbols(Symfile_t *);
+static Symfile_t *newSymfile(unsigned int);
+static unsigned int djb2Hash(unsigned int, const char *);
+static void forEachSymbol(Symfile_t *, symbolCallback_t, void *);
+
+/* static methods - implementations */
+
+static bool tryEachSymbol(Symfile_t *symfile, symbolCallback_t callback, void *probe) {
+  /* Iterate over each symbol in symfile and call callback on it. If success is
+  NULL, it will break the loop and return that Symbol. probe can be used to pass
+  in any extra data. */
+  unsigned int i;
+  for (i = symfile->mask; i; i--) {
+    Symbol_t *symbol = &symfile->symbols[i];
+
+    Symbol_t *success = callback(symfile, symbol, probe);
+    if (!success) return false;
   }
 
-  return symfile;
+  return true;
 }
 
-static unsigned long djb2_hash(unsigned long hash, const char *label) {
-  /* Generate a unsigned long using the djb2 hashing algorithm */
-  int c;
-  while ((c = *label++)) {
-    hash = (hash << 5) + hash + c;
+static Symbol_t *copySymbol(Symfile_t *symfile, Symbol_t *symbol, void *probe) {
+  /* Copy attempts to set symbol on dst. Returns NULL if fails. */
+  if (symbol->label[0] == '\0') return symbol;
+
+  return setSymbol(probe, *symbol);
+}
+
+static Symbol_t *findSymbol(Symfile_t *symfile, symbolCallback_t callback, void *probe) {
+  /* Iterate over each symbol in symfile and call callback on it. If found is an
+  address, it will break the loop and return that Symbol. probe can be used to
+  pass in any extra data. */
+  unsigned int i;
+  for (i = symfile->mask; i; i--) {
+    Symbol_t *symbol = &symfile->symbols[i];
+
+    Symbol_t *found = callback(symfile, symbol, probe);
+    if (found) return found;
   }
 
-  return hash;
+  return NULL;
 }
 
-static Symbol_t *set_symbol(Symfile_t *symfile, Symbol_t symbol) {
+static Symbol_t *setSymbol(Symfile_t *symfile, Symbol_t symbol) {
   /* Set symbol at the correct index in symfile->symbols. Returns NULL on
   failure i.e. 3 collisions - if this happens we should rehash the symbols. */
-  unsigned long index = DJB2_MAGIC_NUMBER;
+  unsigned int index = DJB2_MAGIC_NUMBER;
 
   int collisions;
   for (collisions = SYMBOL_COLLISION_LIMIT; collisions; collisions -= 1) {
     puts(".");
-    index = (djb2_hash(index, symbol.label) & symfile->mask);
+    index = (djb2Hash(index, symbol.label) & symfile->mask);
 
     Symbol_t *target = &(symfile->symbols[index]);
     if (!target->address) {
@@ -58,6 +86,54 @@ static Symbol_t *set_symbol(Symfile_t *symfile, Symbol_t symbol) {
 
   puts("3 collisions - not set");
   return NULL;
+}
+
+static Symfile_t *growSymbols(Symfile_t *symfile) {
+  /* Reallocates the symbols array in symfile by increasing the size of the mask
+  by one bit. Returns dst on success. Returns NULL if fails. */
+  unsigned int mask = (symfile->mask << 1) + 1;
+
+  Symfile_t *dst = newSymfile(mask);
+  if (dst && !tryEachSymbol(symfile, copySymbol, dst))
+      dst = CloseSymfile(dst);
+
+  return dst;
+}
+
+static Symfile_t *newSymfile(unsigned int mask) {
+  /* Allocate and set the defaults for a new Symfile_t */
+  Symfile_t *symfile = calloc(1, sizeof(symfile));
+
+  if (symfile) {
+    symfile->symbols = calloc(mask, sizeof(Symbol_t));
+
+    if (!symfile->symbols) {
+      free(symfile);
+      return NULL;
+    }
+
+    symfile->mask = mask;
+  }
+
+  return symfile;
+}
+
+static unsigned int djb2Hash(unsigned int hash, const char *label) {
+  /* Generate a unsigned int using the djb2 hashing algorithm */
+  int c;
+  while ((c = *label++)) hash = (hash << 5) + hash + c;
+
+  return hash;
+}
+
+static void forEachSymbol(Symfile_t *symfile, symbolCallback_t callback, void *probe) {
+  /* Iterate over each symbol in symfile and call callback on it. probe can be
+  used to pass in any extra data. */
+  unsigned int i;
+  for (i = symfile->mask; i; i--) {
+    Symbol_t *symbol = &symfile->symbols[i];
+    callback(symfile, symbol, probe);
+  }
 }
 
 /* public methods */
@@ -73,12 +149,14 @@ Symfile_t *CloseSymfile(Symfile_t *symfile) {
 }
 
 Symbol_t *GetSymbol(Symfile_t *symfile, char *label) {
-  unsigned long index = DJB2_MAGIC_NUMBER;
+  /* Returns the address of the Symbol_t at label. Returns NULL if label
+  is not found. */
+  unsigned int index = DJB2_MAGIC_NUMBER;
 
   int collisions;
   for (collisions = SYMBOL_COLLISION_LIMIT; collisions; collisions -= 1) {
     puts(".");
-    index = (djb2_hash(index, label) & symfile->mask);
+    index = (djb2Hash(index, label) & symfile->mask);
 
     Symbol_t *target = &(symfile->symbols[index]);
     if (strcmp(label, target->label) == 0) {
@@ -89,13 +167,12 @@ Symbol_t *GetSymbol(Symfile_t *symfile, char *label) {
 
   puts("3 collisions - not found");
   return NULL;
-
 }
 
 Symfile_t *OpenSymfile(char *path) {
   /* OpenSymfile creates and returns new Symfile_t object by parsing the file at
    path. Returns NULL on failure. */
-  Symfile_t *symfile = new_symfile();
+  Symfile_t *symfile = newSymfile(DEFAULT_SYMFILE_MASK);
 
   if (symfile) {
     char buffer[MAX_SYMFILE_LINE_LENGTH];
@@ -109,7 +186,7 @@ Symfile_t *OpenSymfile(char *path) {
       if (count != 3) continue;
       printf("bank: %02hhu, address: 0x%04hX, label: %s\n", symbol.bank, symbol.address, symbol.label);
 
-      set_symbol(symfile, symbol);
+      setSymbol(symfile, symbol);
     }
 
     fclose(stream);

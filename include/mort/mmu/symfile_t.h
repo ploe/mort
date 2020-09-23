@@ -5,17 +5,17 @@
 
 /* constants */
 
+/* DEFAULT_SYMFILE_MASK: To preserve space, a whole unsigned ints-worth of
+Symbols is not allocated. We use mask as both the max and the bitwise mask
+for Symbol indices. If we require more, we rehash. */
+#define DEFAULT_SYMFILE_MASK 0xFF
+
 /* MAX_SYMFILE_LINE_LENGTH: Max symbol length in rgbasm is set to 256, so this
 is overshooting it a tad. */
 #define MAX_SYMFILE_LINE_LENGTH 512
 
 /* MAX_SYMFILE_LINE_LENGTH: Max symbol length in rgbasm is set to 256 */
 #define MAX_SYMFILE_LABEL_LENGTH 256
-
-/* DEFAULT_SYMFILE_MASK: To preserve space, a whole unsigned longs-worth of
-Symbols is not allocated. We use mask as both the max and the bitwise mask
-for Symbol indices. If we require more, we rehash. */
-#define DEFAULT_SYMFILE_MASK 0xFF
 
 /* types */
 
@@ -28,7 +28,7 @@ typedef struct Symbol_t {
 
 typedef struct Symfile_t {
   /* Symfile_t is a hash map of the parsed Symfile symbols */
-  unsigned long mask;
+  unsigned int mask;
   Symbol_t *symbols;
 } Symfile_t;
 
