@@ -34,8 +34,8 @@ typedef struct Symfile_t {
 
 /* methods */
 
-Symfile_t *CloseSymfile(Symfile_t *);
 Symbol_t *GetSymbol(Symfile_t *, char *);
+Symfile_t *CloseSymfile(Symfile_t *);
 Symfile_t *OpenSymfile(char *);
 
 #endif

@@ -23,7 +23,7 @@ static bool tryEachSymbol(Symfile_t *, symbolCallback_t, void *);
 static Symbol_t *copySymbol(Symfile_t *, Symbol_t *, void *);
 static Symbol_t *findSymbol(Symfile_t *, symbolCallback_t, void *);
 static Symbol_t *setSymbol(Symfile_t *, Symbol_t);
-static Symfile_t *growSymbols(Symfile_t *);
+static Symfile_t *growSymfile(Symfile_t *);
 static Symfile_t *newSymfile(unsigned int);
 static unsigned int djb2Hash(unsigned int, const char *);
 static void forEachSymbol(Symfile_t *, symbolCallback_t, void *);
@@ -74,7 +74,6 @@ static Symbol_t *setSymbol(Symfile_t *symfile, Symbol_t symbol) {
 
   int collisions;
   for (collisions = SYMBOL_COLLISION_LIMIT; collisions; collisions -= 1) {
-    puts(".");
     index = (djb2Hash(index, symbol.label) & symfile->mask);
 
     Symbol_t *target = &(symfile->symbols[index]);
@@ -84,11 +83,10 @@ static Symbol_t *setSymbol(Symfile_t *symfile, Symbol_t symbol) {
     }
   }
 
-  puts("3 collisions - not set");
   return NULL;
 }
 
-static Symfile_t *growSymbols(Symfile_t *symfile) {
+static Symfile_t *growSymfile(Symfile_t *symfile) {
   /* Reallocates the symbols array in symfile by increasing the size of the mask
   by one bit. Returns dst on success. Returns NULL if fails. */
   unsigned int mask = (symfile->mask << 1) + 1;
@@ -138,16 +136,6 @@ static void forEachSymbol(Symfile_t *symfile, symbolCallback_t callback, void *p
 
 /* public methods */
 
-Symfile_t *CloseSymfile(Symfile_t *symfile) {
-  /* Deallocates Symfile_t and its symbols. */
-  if (symfile) {
-    if (symfile->symbols) free(symfile->symbols);
-    free(symfile);
-  }
-
-  return NULL;
-}
-
 Symbol_t *GetSymbol(Symfile_t *symfile, char *label) {
   /* Returns the address of the Symbol_t at label. Returns NULL if label
   is not found. */
@@ -155,7 +143,6 @@ Symbol_t *GetSymbol(Symfile_t *symfile, char *label) {
 
   int collisions;
   for (collisions = SYMBOL_COLLISION_LIMIT; collisions; collisions -= 1) {
-    puts(".");
     index = (djb2Hash(index, label) & symfile->mask);
 
     Symbol_t *target = &(symfile->symbols[index]);
@@ -165,7 +152,16 @@ Symbol_t *GetSymbol(Symfile_t *symfile, char *label) {
     }
   }
 
-  puts("3 collisions - not found");
+  return NULL;
+}
+
+Symfile_t *CloseSymfile(Symfile_t *symfile) {
+  /* Deallocates Symfile_t and its symbols. */
+  if (symfile) {
+    if (symfile->symbols) free(symfile->symbols);
+    free(symfile);
+  }
+
   return NULL;
 }
 
@@ -186,7 +182,16 @@ Symfile_t *OpenSymfile(char *path) {
       if (count != 3) continue;
       printf("bank: %02hhu, address: 0x%04hX, label: %s\n", symbol.bank, symbol.address, symbol.label);
 
-      setSymbol(symfile, symbol);
+      int rehashes = SYMFILE_REHASH_LIMIT;
+
+      while (!setSymbol(symfile, symbol)) {
+        /* Symfile_t requires rehashing if we get too many collisions. */
+        Symfile_t *new = growSymfile(symfile);
+        if (!new) return NULL;
+
+        CloseSymfile(symfile);
+        symfile = new;
+      }
     }
 
     fclose(stream);
