@@ -2,7 +2,7 @@
 
 all: build cpu
 	cp -rv include/* build/include
-	cc -o mort main.c build/src/*.c -Ibuild/include
+#	cc -o mort main.c build/src/*.c -Ibuild/include
 
 build:
 	mkdir -p build/src build/include

@@ -1,6 +1,7 @@
 """Module that renders jinja2 templates from json"""
 
 import argparse
+import csv
 import json
 
 import jinja2
@@ -9,11 +10,38 @@ import jinja2
 class Jinjify:
     """Opens json and renders jinja2 files"""
 
-    @staticmethod
-    def extract(filename):
+    def extract(self, doctype, filename):
         """Extract dict from filename"""
         with open(filename) as filehandle:
-            return json.load(filehandle)
+            tag = "{doctype}_extract".format(doctype=doctype)
+            method = getattr(self, tag, self.not_implemented)
+
+            if not callable(method):
+                method = self.not_implemented
+
+            extracted = method(filehandle)
+
+        return extracted
+
+    @staticmethod
+    def not_implemented(filehandle):
+        """Raise TypeError if extract function does not exist"""
+        raise TypeError
+
+    @staticmethod
+    def json_extract(filehandle):
+        """Use JSON to extract the data"""
+        return json.load(filehandle)
+
+    @staticmethod
+    def csv_extract(filehandle):
+        """Use CSV to extract the data"""
+        reader = csv.DictReader(filehandle)
+        extracted = []
+        for row in reader:
+            extracted.append(row)
+
+        return extracted
 
     @staticmethod
     def transform(extracted, filename):
@@ -29,18 +57,19 @@ class Jinjify:
         """Print rendered template to stdout'"""
         print(transformed)
 
-    def make(self, data, template):
+    def make(self, doctype, data, template):
         """Runs the make pipeline from start to finish"""
-        extracted = self.extract(data)
+        extracted = self.extract(doctype, data)
         transformed = self.transform(extracted, template)
         return self.load(transformed)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('doctype', help='The format of the data')
     parser.add_argument('data', help='JSON data to render')
     parser.add_argument('template', help='Jinja2 template to render')
     args = vars(parser.parse_args())
 
     jinjify = Jinjify()
-    jinjify.make(args['data'], args['template'])
+    jinjify.make(args['doctype'], args['data'], args['template'])
