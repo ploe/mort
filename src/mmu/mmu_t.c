@@ -3,10 +3,6 @@
 
 #include "mort/mmu/mmu_t.h"
 
-uint8 MmuRead(uint16_t address) {
-  
-}
-
 Mmu_t *DestroyMmu(Mmu_t *mmu) {
   /* Deallocate the Mmu_t */
   if (mmu) {

@@ -8,7 +8,7 @@ build:
 	mkdir -p build/src build/include
 
 build/src/%.c: jinja2/templates/src/%.j2
-		. ./venv/bin/activate; python jinja2/jinjify.py jinja2/opcodes.json $< > $@
+		. ./venv/bin/activate; python jinja2/jinjify.py json jinja2/opcodes.json $< > $@
 
 cpu: venv
 cpu: build/src/opcodes.c
