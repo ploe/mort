@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-#include "mort/mmu/mmu_t.h"
+#include "mort/memory/memory_t.h"
 
 int main(int argc, char *argv[]) {
-    Mmu_t *mmu = NewMmu("../pulp/pulp.gb");
-    mmu = DestroyMmu(mmu);
+    Memory_t *memory = NewMemory("../pulp/pulp.gb");
+    memory = DestroyMemory(memory);
 
     return 0;
 }

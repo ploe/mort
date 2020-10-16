@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "mort/mmu/mmu_t.h"
-#include "mort/mmu/rom_t.h"
+#include "mort/memory/memory_t.h"
+#include "mort/memory/mbc_t.h"
 
 /* macros */
 

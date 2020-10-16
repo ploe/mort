@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 
-#include "mort/mmu/rom_t.h"
-#include "mort/mmu/wram_t.h"
+#include "mort/memory/mbc_t.h"
+#include "mort/memory/wram_t.h"
 
 /* types */
 
@@ -17,15 +17,15 @@ typedef struct {
   uint16_t start, stop;
 } MemoryRange_t;
 
-typedef struct Mmu_t {
-  /* Mmu_t is a container for the various other memory range containers */
+typedef struct Memory_t {
+  /* Memory_t is a container for the various other memory range containers */
   Mbc_t *mbc;
   Wram_t wram;
-} Mmu_t;
+} Memory_t;
 
 /* methods */
 
-Mmu_t *NewMmu(char *);
-Mmu_t *DestroyMmu(Mmu_t *);
+Memory_t *NewMemory(char *);
+Memory_t *DestroyMemory(Memory_t *);
 
 #endif
