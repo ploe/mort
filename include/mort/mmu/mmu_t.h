@@ -19,7 +19,7 @@ typedef struct {
 
 typedef struct Mmu_t {
   /* Mmu_t is a container for the various other memory range containers */
-  Rom_t *rom;
+  Mbc_t *mbc;
   Wram_t wram;
 } Mmu_t;
 

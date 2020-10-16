@@ -6,7 +6,7 @@
 Mmu_t *DestroyMmu(Mmu_t *mmu) {
   /* Deallocate the Mmu_t */
   if (mmu) {
-    mmu->rom = CloseRom(mmu->rom);
+    mmu->mbc->rom = CloseRom(mmu->mbc->rom);
 
     free(mmu);
   }
@@ -21,7 +21,7 @@ Mmu_t *NewMmu(char *romfile) {
   Mmu_t *mmu = calloc(1, sizeof(Mmu_t));
 
   if (mmu) {
-    mmu->rom = OpenRom(romfile);
+    mmu->mbc = NewMbc(romfile);
     mmu->wram.bankx = &(mmu->wram.bank0[0x1000]);
   }
 

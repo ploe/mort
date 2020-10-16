@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "mort/mmu/symfile_t.h"
+#include "mort/types/symfile_t.h"
 
 /* constants */
 

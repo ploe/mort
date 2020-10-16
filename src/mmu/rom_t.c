@@ -47,7 +47,7 @@ static uint8_t rom0Get(void *module, uint16_t address) {
   /* Return the value in rom0 at address */
   Rom_t *rom = (Rom_t *) module;
 
-  return (uint8_t) rom->bank0[address];
+  return (uint8_t) rom->start[address];
 }
 
 static uint8_t romxGet(void *module, uint16_t address) {
@@ -55,7 +55,7 @@ static uint8_t romxGet(void *module, uint16_t address) {
   Rom_t *rom = (Rom_t *) module;
   address -= ROMX_START;
 
-  return (uint8_t) rom->bankx[address];
+  return (uint8_t) rom->bank[address];
 
   return 0;
 }
@@ -70,6 +70,15 @@ static void romxSet(void *module, uint16_t address, uint8_t value) {
 
 /* public methods */
 
+Mbc_t *NewMbc(const char *path) {
+  Mbc_t *mbc = calloc(1, sizeof(Mbc_t));
+  if (mbc) {
+    mbc->rom = OpenRom(path);
+  }
+
+  return mbc;
+}
+
 Rom_t *OpenRom(const char *path) {
   /* Opens a ROM file and puts it in the struct */
   FILE *stream = fopen(path, "rb");
@@ -82,14 +91,14 @@ Rom_t *OpenRom(const char *path) {
 
     fseek(stream, 0, SEEK_SET);
 
-    char *bank0 = calloc(count + 1, sizeof(char));
-    fread(bank0, sizeof(char), count, stream);
+    char *start = calloc(count + 1, sizeof(char));
+    fread(start, sizeof(char), count, stream);
 
     fclose(stream);
 
     *rom =  (Rom_t) {
-      .bank0 = bank0,
-      .bankx = &bank0[ROMX_START],
+      .start = start,
+      .bank = &start[ROMX_START],
       .count = count,
     };
   }
@@ -99,7 +108,7 @@ Rom_t *OpenRom(const char *path) {
 
 Rom_t *CloseRom(Rom_t *rom) {
   /* Deallocates a Rom_t */
-  if (rom->bank0) free(rom->bank0);
+  if (rom->start) free(rom->start);
   free(rom);
 
   return NULL;
