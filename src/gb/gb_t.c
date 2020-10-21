@@ -1,26 +1,10 @@
 #include <stdlib.h>
 
-#include "mort/cpu/cpu_t.h"
-#include "mort/cpu/op_t.h"
-#include "mort/memory/memory_t.h"
-
-
-typedef void *(HookMethod)(Gb_t *, Op_t *);
-
-struct _Gb_t {
-  /* Gb_t is a container that holds references to submodules that describe
-  hardware features of the Game Boy */
-  Cpu_t *cpu;
-  struct {
-    void *data;
-    HookMethod *post, *pre;
-  } hooks;
-  void *memory;
-};
+#include "mort/gb/gb_t.h"
 
 void *GbRun(Gb_t *gb, uint16_t entrypoint) {
   /* GbRun executes each instruction, until it hits a breakpoint in the pre or
-  post hook. It returns the breakpoint that was returned. */
+  post hook. It returns the breakpoint. */
   uint16_t *pc = &gb->cpu->pc;
   *pc = entrypoint;
 

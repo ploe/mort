@@ -1,14 +1,17 @@
-
 #ifndef _MORT_CPU_OP_T_H
 #define _MORT_CPU_OP_T_H
 
 #include <stdlib.h>
 
-/* types */
+/* prototypes */
+
+/* So that we do not have a circular dependency we forward declare Gb_t so we
+can use it here */
 
 struct _Gb_t;
-
 typedef struct _Gb_t Gb_t;
+
+/* types */
 
 /* OpMethod_t is the signature of the callback function method in Op_t */
 typedef uint16_t (*OpMethod_t)(Gb_t *);
