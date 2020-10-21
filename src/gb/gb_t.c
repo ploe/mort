@@ -2,8 +2,8 @@
 
 #include "mort/cpu/cpu_t.h"
 #include "mort/cpu/op_t.h"
+#include "mort/memory/memory_t.h"
 
-uint16_t MemoryGet(void *, uint16_t);
 
 typedef void *(HookMethod)(Gb_t *, Op_t *);
 
@@ -19,6 +19,8 @@ struct _Gb_t {
 };
 
 void *GbRun(Gb_t *gb, uint16_t entrypoint) {
+  /* GbRun executes each instruction, until it hits a breakpoint in the pre or
+  post hook. It returns the breakpoint that was returned. */
   uint16_t *pc = &gb->cpu->pc;
   *pc = entrypoint;
 

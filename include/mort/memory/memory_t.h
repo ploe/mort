@@ -25,7 +25,9 @@ typedef struct Memory_t {
 
 /* methods */
 
-Memory_t *NewMemory(char *);
 Memory_t *DestroyMemory(Memory_t *);
+Memory_t *NewMemory(char *);
+uint16_t MemoryGet(Memory_t *memory, uint16_t address);
+
 
 #endif

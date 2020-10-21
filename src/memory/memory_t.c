@@ -3,6 +3,10 @@
 
 #include "mort/memory/memory_t.h"
 
+uint16_t MemoryGet(Memory_t *memory, uint16_t address) {
+  return 0;
+}
+
 Memory_t *DestroyMemory(Memory_t *memory) {
   /* Deallocate the Memory_t */
   if (memory) {
