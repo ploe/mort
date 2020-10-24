@@ -5,9 +5,12 @@
 #include "mort/cpu/op_t.h"
 #include "mort/memory/memory_t.h"
 
-struct _Gb_t;
+/* prototypes */
 
+struct _Gb_t;
 typedef struct _Gb_t Gb_t;
+
+/* types */
 
 typedef void *(HookMethod)(Gb_t *, Op_t *);
 
