@@ -15,7 +15,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'nop',
+    .mnemonic = "nop",
   },
   {
     .code = 0x01,
@@ -31,7 +31,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x02,
@@ -47,7 +47,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x03,
@@ -63,7 +63,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x04,
@@ -79,7 +79,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x05,
@@ -95,7 +95,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x06,
@@ -111,7 +111,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x07,
@@ -127,7 +127,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rlca',
+    .mnemonic = "rlca",
   },
   {
     .code = 0x08,
@@ -143,7 +143,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x09,
@@ -159,7 +159,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x0A,
@@ -175,7 +175,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x0B,
@@ -191,7 +191,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x0C,
@@ -207,7 +207,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x0D,
@@ -223,7 +223,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x0E,
@@ -239,7 +239,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x0F,
@@ -255,7 +255,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rrca',
+    .mnemonic = "rrca",
   },
   {
     .code = 0x10,
@@ -271,7 +271,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'stop',
+    .mnemonic = "stop",
   },
   {
     .code = 0x11,
@@ -287,7 +287,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x12,
@@ -303,7 +303,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x13,
@@ -319,7 +319,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x14,
@@ -335,7 +335,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x15,
@@ -351,7 +351,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x16,
@@ -367,7 +367,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x17,
@@ -383,7 +383,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rla',
+    .mnemonic = "rla",
   },
   {
     .code = 0x18,
@@ -399,7 +399,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'jr',
+    .mnemonic = "jr",
   },
   {
     .code = 0x19,
@@ -415,7 +415,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x1A,
@@ -431,7 +431,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x1B,
@@ -447,7 +447,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x1C,
@@ -463,7 +463,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x1D,
@@ -479,7 +479,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x1E,
@@ -495,7 +495,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x1F,
@@ -511,13 +511,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rra',
+    .mnemonic = "rra",
   },
   {
     .code = 0x20,
     .cycles = {
-      .jump = 12
-      .next = 8,
+        .jump = 12,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -527,7 +527,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'jr',
+    .mnemonic = "jr",
   },
   {
     .code = 0x21,
@@ -543,7 +543,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x22,
@@ -559,7 +559,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x23,
@@ -575,7 +575,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x24,
@@ -591,7 +591,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x25,
@@ -607,7 +607,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x26,
@@ -623,7 +623,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x27,
@@ -639,13 +639,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'daa',
+    .mnemonic = "daa",
   },
   {
     .code = 0x28,
     .cycles = {
-      .jump = 12
-      .next = 8,
+        .jump = 12,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -655,7 +655,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'jr',
+    .mnemonic = "jr",
   },
   {
     .code = 0x29,
@@ -671,7 +671,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x2A,
@@ -687,7 +687,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x2B,
@@ -703,7 +703,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x2C,
@@ -719,7 +719,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x2D,
@@ -735,7 +735,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x2E,
@@ -751,7 +751,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x2F,
@@ -767,13 +767,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cpl',
+    .mnemonic = "cpl",
   },
   {
     .code = 0x30,
     .cycles = {
-      .jump = 12
-      .next = 8,
+        .jump = 12,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -783,7 +783,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'jr',
+    .mnemonic = "jr",
   },
   {
     .code = 0x31,
@@ -799,7 +799,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x32,
@@ -815,7 +815,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x33,
@@ -831,7 +831,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x34,
@@ -847,7 +847,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x35,
@@ -863,7 +863,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x36,
@@ -879,7 +879,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x37,
@@ -895,13 +895,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'scf',
+    .mnemonic = "scf",
   },
   {
     .code = 0x38,
     .cycles = {
-      .jump = 12
-      .next = 8,
+        .jump = 12,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -911,7 +911,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'jr',
+    .mnemonic = "jr",
   },
   {
     .code = 0x39,
@@ -927,7 +927,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x3A,
@@ -943,7 +943,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x3B,
@@ -959,7 +959,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x3C,
@@ -975,7 +975,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'inc',
+    .mnemonic = "inc",
   },
   {
     .code = 0x3D,
@@ -991,7 +991,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'dec',
+    .mnemonic = "dec",
   },
   {
     .code = 0x3E,
@@ -1007,7 +1007,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x3F,
@@ -1023,7 +1023,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ccf',
+    .mnemonic = "ccf",
   },
   {
     .code = 0x40,
@@ -1039,7 +1039,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x41,
@@ -1055,7 +1055,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x42,
@@ -1071,7 +1071,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x43,
@@ -1087,7 +1087,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x44,
@@ -1103,7 +1103,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x45,
@@ -1119,7 +1119,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x46,
@@ -1135,7 +1135,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x47,
@@ -1151,7 +1151,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x48,
@@ -1167,7 +1167,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x49,
@@ -1183,7 +1183,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4A,
@@ -1199,7 +1199,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4B,
@@ -1215,7 +1215,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4C,
@@ -1231,7 +1231,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4D,
@@ -1247,7 +1247,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4E,
@@ -1263,7 +1263,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x4F,
@@ -1279,7 +1279,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x50,
@@ -1295,7 +1295,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x51,
@@ -1311,7 +1311,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x52,
@@ -1327,7 +1327,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x53,
@@ -1343,7 +1343,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x54,
@@ -1359,7 +1359,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x55,
@@ -1375,7 +1375,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x56,
@@ -1391,7 +1391,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x57,
@@ -1407,7 +1407,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x58,
@@ -1423,7 +1423,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x59,
@@ -1439,7 +1439,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5A,
@@ -1455,7 +1455,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5B,
@@ -1471,7 +1471,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5C,
@@ -1487,7 +1487,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5D,
@@ -1503,7 +1503,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5E,
@@ -1519,7 +1519,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x5F,
@@ -1535,7 +1535,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x60,
@@ -1551,7 +1551,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x61,
@@ -1567,7 +1567,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x62,
@@ -1583,7 +1583,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x63,
@@ -1599,7 +1599,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x64,
@@ -1615,7 +1615,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x65,
@@ -1631,7 +1631,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x66,
@@ -1647,7 +1647,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x67,
@@ -1663,7 +1663,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x68,
@@ -1679,7 +1679,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x69,
@@ -1695,7 +1695,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6A,
@@ -1711,7 +1711,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6B,
@@ -1727,7 +1727,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6C,
@@ -1743,7 +1743,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6D,
@@ -1759,7 +1759,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6E,
@@ -1775,7 +1775,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x6F,
@@ -1791,7 +1791,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x70,
@@ -1807,7 +1807,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x71,
@@ -1823,7 +1823,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x72,
@@ -1839,7 +1839,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x73,
@@ -1855,7 +1855,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x74,
@@ -1871,7 +1871,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x75,
@@ -1887,7 +1887,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x76,
@@ -1903,7 +1903,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'halt',
+    .mnemonic = "halt",
   },
   {
     .code = 0x77,
@@ -1919,7 +1919,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x78,
@@ -1935,7 +1935,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x79,
@@ -1951,7 +1951,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7A,
@@ -1967,7 +1967,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7B,
@@ -1983,7 +1983,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7C,
@@ -1999,7 +1999,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7D,
@@ -2015,7 +2015,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7E,
@@ -2031,7 +2031,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x7F,
@@ -2047,7 +2047,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0x80,
@@ -2063,7 +2063,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x81,
@@ -2079,7 +2079,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x82,
@@ -2095,7 +2095,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x83,
@@ -2111,7 +2111,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x84,
@@ -2127,7 +2127,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x85,
@@ -2143,7 +2143,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x86,
@@ -2159,7 +2159,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x87,
@@ -2175,7 +2175,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0x88,
@@ -2191,7 +2191,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x89,
@@ -2207,7 +2207,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8A,
@@ -2223,7 +2223,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8B,
@@ -2239,7 +2239,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8C,
@@ -2255,7 +2255,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8D,
@@ -2271,7 +2271,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8E,
@@ -2287,7 +2287,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x8F,
@@ -2303,7 +2303,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0x90,
@@ -2319,7 +2319,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x91,
@@ -2335,7 +2335,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x92,
@@ -2351,7 +2351,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x93,
@@ -2367,7 +2367,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x94,
@@ -2383,7 +2383,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x95,
@@ -2399,7 +2399,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x96,
@@ -2415,7 +2415,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x97,
@@ -2431,7 +2431,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0x98,
@@ -2447,7 +2447,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x99,
@@ -2463,7 +2463,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9A,
@@ -2479,7 +2479,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9B,
@@ -2495,7 +2495,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9C,
@@ -2511,7 +2511,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9D,
@@ -2527,7 +2527,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9E,
@@ -2543,7 +2543,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0x9F,
@@ -2559,7 +2559,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0xA0,
@@ -2575,7 +2575,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA1,
@@ -2591,7 +2591,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA2,
@@ -2607,7 +2607,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA3,
@@ -2623,7 +2623,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA4,
@@ -2639,7 +2639,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA5,
@@ -2655,7 +2655,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA6,
@@ -2671,7 +2671,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA7,
@@ -2687,7 +2687,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xA8,
@@ -2703,7 +2703,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xA9,
@@ -2719,7 +2719,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAA,
@@ -2735,7 +2735,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAB,
@@ -2751,7 +2751,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAC,
@@ -2767,7 +2767,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAD,
@@ -2783,7 +2783,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAE,
@@ -2799,7 +2799,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xAF,
@@ -2815,7 +2815,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xB0,
@@ -2831,7 +2831,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB1,
@@ -2847,7 +2847,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB2,
@@ -2863,7 +2863,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB3,
@@ -2879,7 +2879,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB4,
@@ -2895,7 +2895,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB5,
@@ -2911,7 +2911,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB6,
@@ -2927,7 +2927,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB7,
@@ -2943,7 +2943,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xB8,
@@ -2959,7 +2959,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xB9,
@@ -2975,7 +2975,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBA,
@@ -2991,7 +2991,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBB,
@@ -3007,7 +3007,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBC,
@@ -3023,7 +3023,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBD,
@@ -3039,7 +3039,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBE,
@@ -3055,7 +3055,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xBF,
@@ -3071,13 +3071,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xC0,
     .cycles = {
-      .jump = 20
-      .next = 8,
+        .jump = 20,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -3087,7 +3087,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ret',
+    .mnemonic = "ret",
   },
   {
     .code = 0xC1,
@@ -3103,13 +3103,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'pop',
+    .mnemonic = "pop",
   },
   {
     .code = 0xC2,
     .cycles = {
-      .jump = 16
-      .next = 12,
+        .jump = 16,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3119,7 +3119,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xC3,
@@ -3135,13 +3135,13 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xC4,
     .cycles = {
-      .jump = 24
-      .next = 12,
+        .jump = 24,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3151,7 +3151,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'call',
+    .mnemonic = "call",
   },
   {
     .code = 0xC5,
@@ -3167,7 +3167,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'push',
+    .mnemonic = "push",
   },
   {
     .code = 0xC6,
@@ -3183,7 +3183,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0xC7,
@@ -3199,13 +3199,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xC8,
     .cycles = {
-      .jump = 20
-      .next = 8,
+        .jump = 20,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -3215,7 +3215,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ret',
+    .mnemonic = "ret",
   },
   {
     .code = 0xC9,
@@ -3231,13 +3231,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ret',
+    .mnemonic = "ret",
   },
   {
     .code = 0xCA,
     .cycles = {
-      .jump = 16
-      .next = 12,
+        .jump = 16,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3247,7 +3247,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xCB,
@@ -3263,13 +3263,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'prefix',
+    .mnemonic = "prefix",
   },
   {
     .code = 0xCC,
     .cycles = {
-      .jump = 24
-      .next = 12,
+        .jump = 24,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3279,7 +3279,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'call',
+    .mnemonic = "call",
   },
   {
     .code = 0xCD,
@@ -3295,7 +3295,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'call',
+    .mnemonic = "call",
   },
   {
     .code = 0xCE,
@@ -3311,7 +3311,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'adc',
+    .mnemonic = "adc",
   },
   {
     .code = 0xCF,
@@ -3327,13 +3327,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xD0,
     .cycles = {
-      .jump = 20
-      .next = 8,
+        .jump = 20,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -3343,7 +3343,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ret',
+    .mnemonic = "ret",
   },
   {
     .code = 0xD1,
@@ -3359,13 +3359,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'pop',
+    .mnemonic = "pop",
   },
   {
     .code = 0xD2,
     .cycles = {
-      .jump = 16
-      .next = 12,
+        .jump = 16,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3375,7 +3375,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xD3,
@@ -3391,13 +3391,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_d3',
+    .mnemonic = "illegal_d3",
   },
   {
     .code = 0xD4,
     .cycles = {
-      .jump = 24
-      .next = 12,
+        .jump = 24,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3407,7 +3407,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'call',
+    .mnemonic = "call",
   },
   {
     .code = 0xD5,
@@ -3423,7 +3423,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'push',
+    .mnemonic = "push",
   },
   {
     .code = 0xD6,
@@ -3439,7 +3439,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'sub',
+    .mnemonic = "sub",
   },
   {
     .code = 0xD7,
@@ -3455,13 +3455,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xD8,
     .cycles = {
-      .jump = 20
-      .next = 8,
+        .jump = 20,
+        .next = 8,
     },
     .flags = {
       .z = '-',
@@ -3471,7 +3471,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ret',
+    .mnemonic = "ret",
   },
   {
     .code = 0xD9,
@@ -3487,13 +3487,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'reti',
+    .mnemonic = "reti",
   },
   {
     .code = 0xDA,
     .cycles = {
-      .jump = 16
-      .next = 12,
+        .jump = 16,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3503,7 +3503,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xDB,
@@ -3519,13 +3519,13 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_db',
+    .mnemonic = "illegal_db",
   },
   {
     .code = 0xDC,
     .cycles = {
-      .jump = 24
-      .next = 12,
+        .jump = 24,
+        .next = 12,
     },
     .flags = {
       .z = '-',
@@ -3535,7 +3535,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'call',
+    .mnemonic = "call",
   },
   {
     .code = 0xDD,
@@ -3551,7 +3551,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_dd',
+    .mnemonic = "illegal_dd",
   },
   {
     .code = 0xDE,
@@ -3567,7 +3567,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'sbc',
+    .mnemonic = "sbc",
   },
   {
     .code = 0xDF,
@@ -3583,7 +3583,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xE0,
@@ -3599,7 +3599,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ldh',
+    .mnemonic = "ldh",
   },
   {
     .code = 0xE1,
@@ -3615,7 +3615,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'pop',
+    .mnemonic = "pop",
   },
   {
     .code = 0xE2,
@@ -3631,7 +3631,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xE3,
@@ -3647,7 +3647,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_e3',
+    .mnemonic = "illegal_e3",
   },
   {
     .code = 0xE4,
@@ -3663,7 +3663,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_e4',
+    .mnemonic = "illegal_e4",
   },
   {
     .code = 0xE5,
@@ -3679,7 +3679,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'push',
+    .mnemonic = "push",
   },
   {
     .code = 0xE6,
@@ -3695,7 +3695,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'and',
+    .mnemonic = "and",
   },
   {
     .code = 0xE7,
@@ -3711,7 +3711,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xE8,
@@ -3727,7 +3727,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'add',
+    .mnemonic = "add",
   },
   {
     .code = 0xE9,
@@ -3743,7 +3743,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'jp',
+    .mnemonic = "jp",
   },
   {
     .code = 0xEA,
@@ -3759,7 +3759,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xEB,
@@ -3775,7 +3775,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_eb',
+    .mnemonic = "illegal_eb",
   },
   {
     .code = 0xEC,
@@ -3791,7 +3791,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_ec',
+    .mnemonic = "illegal_ec",
   },
   {
     .code = 0xED,
@@ -3807,7 +3807,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_ed',
+    .mnemonic = "illegal_ed",
   },
   {
     .code = 0xEE,
@@ -3823,7 +3823,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'xor',
+    .mnemonic = "xor",
   },
   {
     .code = 0xEF,
@@ -3839,7 +3839,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xF0,
@@ -3855,7 +3855,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ldh',
+    .mnemonic = "ldh",
   },
   {
     .code = 0xF1,
@@ -3871,7 +3871,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'pop',
+    .mnemonic = "pop",
   },
   {
     .code = 0xF2,
@@ -3887,7 +3887,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xF3,
@@ -3903,7 +3903,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'di',
+    .mnemonic = "di",
   },
   {
     .code = 0xF4,
@@ -3919,7 +3919,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_f4',
+    .mnemonic = "illegal_f4",
   },
   {
     .code = 0xF5,
@@ -3935,7 +3935,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'push',
+    .mnemonic = "push",
   },
   {
     .code = 0xF6,
@@ -3951,7 +3951,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'or',
+    .mnemonic = "or",
   },
   {
     .code = 0xF7,
@@ -3967,7 +3967,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
   {
     .code = 0xF8,
@@ -3983,7 +3983,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xF9,
@@ -3999,7 +3999,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xFA,
@@ -4015,7 +4015,7 @@ static Op_t ops[] = {
     },
     .length = 3,
     .method = NULL,
-    .mnemonic = 'ld',
+    .mnemonic = "ld",
   },
   {
     .code = 0xFB,
@@ -4031,7 +4031,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'ei',
+    .mnemonic = "ei",
   },
   {
     .code = 0xFC,
@@ -4047,7 +4047,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_fc',
+    .mnemonic = "illegal_fc",
   },
   {
     .code = 0xFD,
@@ -4063,7 +4063,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'illegal_fd',
+    .mnemonic = "illegal_fd",
   },
   {
     .code = 0xFE,
@@ -4079,7 +4079,7 @@ static Op_t ops[] = {
     },
     .length = 2,
     .method = NULL,
-    .mnemonic = 'cp',
+    .mnemonic = "cp",
   },
   {
     .code = 0xFF,
@@ -4095,7 +4095,7 @@ static Op_t ops[] = {
     },
     .length = 1,
     .method = NULL,
-    .mnemonic = 'rst',
+    .mnemonic = "rst",
   },
 };
 

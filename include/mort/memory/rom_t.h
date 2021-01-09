@@ -33,8 +33,8 @@ enum {
   CASSETTE_TYPE_MBC5_RUMBLE_RAM_BATTERY = 0x1E,
   CASSETTE_TYPE_MBC6 = 0x20,
   CASSETTE_TYPE_MBC7_SENSOR_RUMBLE_RAM_BATTERY = 0x22,
-  CASSETTE_TYPE_POCKET CAMERA = 0xFC,
-  CASSETTE_TYPE_BANDAI TAMA5 = 0xFD,
+  CASSETTE_TYPE_POCKET_CAMERA = 0xFC,
+  CASSETTE_TYPE_BANDAI_TAMA5 = 0xFD,
   CASSETTE_TYPE_HUC3 = 0xFE,
   CASSETTE_TYPE_HUC1_RAM_BATTERY = 0xFF,
 };
@@ -43,9 +43,9 @@ typedef uint8_t CassetteType_t;
 
 typedef struct Rom_t {
   /* Rom_t is a container for the ROM data */
-  CasetteType_t casette_type;
+  CassetteType_t cassette_type;
   char *start, *bank;
-  long count
+  long count;
 } Rom_t;
 
 Rom_t *OpenRom(const char *);

@@ -4,8 +4,8 @@ static Op_t ops[] = {
     .code = {{ key }},
     .cycles = {
       {%- if value.cycles | length > 1 %}
-      .jump = {{ value.cycles[0] }}
-      .next = {{ value.cycles[1] }},
+        .jump = {{ value.cycles[0] }},
+        .next = {{ value.cycles[1] }},
       {%- else %}
         .jump = 0,
         .next = {{ value.cycles[0] }},
@@ -19,7 +19,7 @@ static Op_t ops[] = {
     },
     .length = {{ value.bytes }},
     .method = NULL,
-    .mnemonic = '{{ value.mnemonic | lower }}',
+    .mnemonic = "{{ value.mnemonic | lower }}",
   },
 {%- endfor %}
 };
