@@ -1,0 +1,25 @@
+static Op_t ops[] = {
+{%- for key, value in extracted['unprefixed'].items() %}
+  {
+    .code = {{ key }},
+    .cycles = {
+      {%- if value.cycles | length > 1 %}
+      .jump = {{ value.cycles[0] }}
+      .next = {{ value.cycles[1] }},
+      {%- else %}
+        .jump = 0,
+        .next = {{ value.cycles[0] }},
+      {%- endif %}
+    },
+    .flags = {
+      .z = '{{ value.flags.Z }}',
+      .n = '{{ value.flags.N }}',
+      .h = '{{ value.flags.H }}',
+      .c = '{{ value.flags.C }}',
+    },
+    .length = {{ value.bytes }},
+    .method = NULL,
+    .mnemonic = '{{ value.mnemonic | lower }}',
+  },
+{%- endfor %}
+};

@@ -28,8 +28,15 @@ typedef struct {
     char z, n, h, c;
   } flags;
 
+  /* mnemonic is the assembly mnemonic for the op */
+  const char *mnemonic;
+
   /* method is the callback function we call to execute the op */
   OpMethod_t method;
+
+  /* The actual opcode of the the instruction, this should be the index of the
+  op in the ops array */
+  uint8_t code;
 
   /* length is the size of the instruction in binary, we need this to increment
   PC after executing the op */

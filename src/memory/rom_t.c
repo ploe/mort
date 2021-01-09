@@ -95,8 +95,10 @@ Rom_t *OpenRom(const char *path) {
 
 Rom_t *CloseRom(Rom_t *rom) {
   /* Deallocates a Rom_t */
-  if (rom->start) free(rom->start);
-  free(rom);
+  if (rom) {
+    if (rom->start) free(rom->start);
+    free(rom);
+  }
 
   return NULL;
 }
